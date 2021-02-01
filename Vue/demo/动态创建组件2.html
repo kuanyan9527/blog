@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Vue动态创建组件</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    .tabBox {
+      display: inline-block;
+    }
+
+    .tab {
+      display: inline-block;
+      width: 100px;
+      height: 30px;
+      margin-left: 5px;
+      line-height: 30px;
+      text-align: center;
+      border: 1px solid red;
+    }
+
+    .add {
+      display: inline-block;
+      width: 20px;
+      height: 30px;
+      line-height: 30px;
+      text-align: center;
+      border: 1px solid red;
+    }
+  </style>
+</head>
+<body>
+  <div id="app" class="app">
+    <div>XXX页面</div>
+    <div id="tabBox" class="tabBox"></div>
+    <div class="add" @click="add" ref="add">+</div>
+  </div>
+
+  <template id="tab">
+    <div class="tab" @click="changeColor">{{tabname}}</div>
+  </template>
+
+  <script src="./lib/vue.js"></script>
+  <script src="./create.js"></script>
+  <script>
+    const tab = {
+      template: '#tab',
+      props: ['tabname'],
+      methods: {
+        changeColor() {
+          this.$emit('change-color')
+        }
+      }
+    }
+
+    const vm = new Vue({
+      data: {
+        tabName: '',
+        base: '页签',
+        num: 1
+      },
+      methods: {
+        add() {
+          this.tabName = this.base + this.num
+          this.num++
+          let parent = document.getElementById('tabBox')
+          let create = new Create(tab, {tabname: this.tabName}, parent)
+          create.on('change-color', () => {
+            let refAdd = this.$refs.add
+            refAdd.style.backgroundColor = 'red'
+          })
+        }
+      }
+    }).$mount('#app')
+
+  </script>
+  
+</body>
+</html>
