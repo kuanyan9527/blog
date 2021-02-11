@@ -149,6 +149,6 @@ app.all('*', function (req, res, next) {
 ```
 [关于Access-Control-Max-Age](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Access-Control-Max-Age)
 
-[案例代码]()
+[案例代码](https://github.com/kuanyan9527/blog/tree/main/net/demo/option%E8%AF%B7%E6%B1%82)
 
 **爱总结，爱搬砖，爱生活**
