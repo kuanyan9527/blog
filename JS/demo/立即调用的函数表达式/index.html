@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>立即调用的函数表达式</title>
+</head>
+<div id="box">
+  <button class="btn">0</button>
+  <button class="btn">1</button>
+  <button class="btn">2</button>
+  <button class="btn">3</button>
+</div>
+
+<body>
+  <script>
+    // function foo() {
+    //   console.log('foo')
+    // }
+
+    // var bar = function () {
+    //   console.log('bar')
+    // }
+
+    // var rn = function rn() {
+    //   console.log('rn')
+    // }()
+
+    // true && function(){ console.log(1) }();
+    // 0, function(){ console.log(2) }()
+    // !function () { console.log(3) }()
+    // ~function () { console.log(4) }();
+    // -function () { console.log(5) }();
+    // +function () { console.log(6) }();
+
+    // foo()
+    // bar()
+    // rn()
+
+    // var btns = document.getElementsByClassName('btn')
+    // for(var i = 0; i < btns.length; i++) {
+    //   btns[i].onclick = function() {
+    //     console.log(i);
+    //   }
+    // }
+
+    // var btns = document.getElementsByClassName('btn')
+    // for(var i = 0; i < btns.length; i++) {
+    //   btns[i].onclick = (function(i) {
+    //     return function() {
+    //       console.log(i)
+    //     }
+    //   }(i))
+    // }
+
+    var btns = document.getElementsByClassName('btn')
+    for(var i = 0; i < btns.length; i++) {
+      (function(i) {
+        btns[i].onclick = function() {
+          console.log(i)
+        }
+      }(i))
+    }
+
+
+  </script>
+</body>
+
+</html>
