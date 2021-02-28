@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>函数执行时的作用域</title>
+</head>
+<body>
+  <script>
+    var a = 10
+
+    // 案例一
+    function foo1() {
+      var a = 30
+      return function() {
+        console.log(a)
+      }
+    }
+
+    var b = foo1()
+    b()
+
+    // 案例二
+    function foo2() {
+      console.log(a)
+    }
+
+    function foo3() {
+      var a = 40
+      foo2()
+    }
+
+    foo3()
+
+    // 疑问
+    var obj = {
+      a: 20,
+      foo() {
+        console.log(this.a)
+      }
+    }
+
+    obj.foo()
+
+  </script>
+</body>
+</html>
