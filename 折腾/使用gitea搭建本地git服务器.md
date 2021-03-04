@@ -45,7 +45,7 @@
 1. 以**管理员身份**启动命令行；
 2. 使用`sc delete gitea`命令，删除`gitea`服务；
 3. 使用`sc create gitea start= auto binPath= "\"d:\gitea\gitea-1.13.2-windows-4.0-amd64.exe\" web --config \"d:\gitea\custom\conf\app.ini\""`设置服务；
-4. 设置`gitea`服务启动类型为**自动（延迟启动）**
+4. 设置`gitea`服务启动类型为**自动（延迟启动）**，下次电脑开机过一会就会自动启动这个服务。
 ![删除服务](https://note.youdao.com/yws/api/personal/file/69B9F8C7ADFC41ABBC93C8F3602896DE?method=download&shareKey=399ab0de0880430a6ab9fa4ee160fa38)
 ![设置服务](https://note.youdao.com/yws/api/personal/file/8CFB9E77564A4EE096DF4E8B5B92F29C?method=download&shareKey=421b7a9c89846dd6f84537fc62b9d1bb)
 ![windows服务页面](https://note.youdao.com/yws/api/personal/file/B54E93278AAA4220AC5D325FFFEB1048?method=download&shareKey=e7885e78692e4de4df7de705a86b7344)
